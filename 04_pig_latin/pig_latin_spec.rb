@@ -68,5 +68,20 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+  it "keeps capitalized words capitalized" do
+    s = translate('Echo')
+    expect(s).to eq('Echoay')
+    s = translate('Banana')
+    expect(s).to eq('Ananabay')
+  end
 
+  it "capitalize the resultant string if the original already was" do
+    s = translate("Square")
+    expect(s).to eq("Aresquay")
+  end
+  
+  it "capitalize each word of the string if the original word already was" do
+    s = translate("Square circle Myci")
+    expect(s).to eq("Aresquay irclecay Imycay")
+  end
 end
